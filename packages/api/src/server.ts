@@ -8,7 +8,8 @@ const server = fastify();
 server.register(multipart, {
   limits: {
     fileSize: 1e+6 // 1mb
-  }
+  },
+  attachFieldsToBody: true
 });
 server.register(cors, {
   origin: true,
