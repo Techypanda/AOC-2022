@@ -1,7 +1,7 @@
 export function LandingPage() {
     return (
         <>
-            home
+            when i feel creative i might put something here
         </>
     )
 }

@@ -5,22 +5,31 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
+import "nes.css/css/nes.min.css";
 import { LandingPage } from './features/landing/LandingPage';
 import { ChallengeOne } from './features/day01/Challenge';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Header } from './components/Header';
+import { Page } from './components/Page';
 
+const queryClient = new QueryClient
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Page children={<LandingPage />} />,
   },
   {
     path: "/1",
-    element: <ChallengeOne />
+    element: <Page children={<ChallengeOne />} />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
