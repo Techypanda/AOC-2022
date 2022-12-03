@@ -2,6 +2,7 @@ import { MultipartFile } from "@fastify/multipart";
 import { FastifyInstance } from "fastify";
 import { CaloriesController } from "../controllers/Calories";
 import { Jajanken } from "../controllers/Jajanken";
+import { Rucksack } from "../controllers/Rucksack";
 
 export function initializeRoutes(r: FastifyInstance) {
     r.get('/', async (_, reply) => {
@@ -14,7 +15,7 @@ export function initializeRoutes(r: FastifyInstance) {
             new CaloriesController().get({ data: buffer.toString().split('\n') }, reply);
         } else {
             reply
-                .status(401)
+                .status(400)
                 .send({ error: 'file is missing' });
         }
     });
@@ -27,7 +28,7 @@ export function initializeRoutes(r: FastifyInstance) {
             new CaloriesController().get({ data: buffer.toString().split('\n') }, reply, inputN);
         } else {
             reply
-                .status(401)
+                .status(400)
                 .send({ error: 'file is missing' });
         }
     });
@@ -38,8 +39,17 @@ export function initializeRoutes(r: FastifyInstance) {
             new Jajanken().post({ data: buffer.toString().split('\n'), v2: body.v2 || false }, reply);
         } else {
             reply
-                .status(401)
+                .status(400)
                 .send({ error: 'file is missing' });
         }
-    })
+    });
+    r.post('/3', async (request, reply) => {
+        const body = await request.body as { data: MultipartFile, v2: boolean };
+        if (body.data) {
+            const buffer = await body.data.toBuffer();
+            new Rucksack().post({ data: buffer.toString().split('\n'), v2: body.v2 || false }, reply);
+        } else {
+            reply.status(400).send({ error: 'file is missing' });
+        }
+    });
 }

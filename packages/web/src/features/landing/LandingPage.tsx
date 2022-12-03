@@ -1,7 +1,7 @@
 export function LandingPage() {
     return (
         <>
-            when i feel creative i might put something here
+            <img className='mx-auto my-auto' src='https://i.redd.it/ddy9hrjdixo21.jpg' alt='spaghet' />
         </>
     )
 }

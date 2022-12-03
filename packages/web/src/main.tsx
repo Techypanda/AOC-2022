@@ -10,14 +10,14 @@ import { LandingPage } from './features/landing/LandingPage';
 import { ChallengeOne } from './features/day01/Challenge';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Header } from './components/Header';
 import { Page } from './components/Page';
 import { ChallengeTwo } from './features/day02/Challenge';
+import { ChallengeThree } from './features/day03/Challenge';
 
 const queryClient = new QueryClient
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: <Page children={<LandingPage />} />,
   },
   {
@@ -27,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/2",
     element: <Page children={<ChallengeTwo />} />
+  },
+  {
+    path: "/3",
+    element: <Page children={<ChallengeThree />} />
   }
 ]);
 
