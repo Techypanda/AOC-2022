@@ -13,6 +13,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Page } from './components/Page';
 import { ChallengeTwo } from './features/day02/Challenge';
 import { ChallengeThree } from './features/day03/Challenge';
+import { ChallengeFour } from './features/day04/Challenge';
 
 const queryClient = new QueryClient
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/3",
     element: <Page children={<ChallengeThree />} />
+  },
+  {
+    path: "/4",
+    element: <Page children={<ChallengeFour />} />
   }
 ]);
 

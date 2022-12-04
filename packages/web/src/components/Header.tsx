@@ -8,6 +8,7 @@ export function Header() {
             <h2 className='text-xs select-none cursor-pointer inline-block ml-4' onClick={() => navigate('/1')}>Challenge 1</h2>
             <h2 className='text-xs select-none cursor-pointer inline-block ml-4' onClick={() => navigate('/2')}>Challenge 2</h2>
             <h2 className='text-xs select-none cursor-pointer inline-block ml-4' onClick={() => navigate('/3')}>Challenge 3</h2>
+            <h2 className='text-xs select-none cursor-pointer inline-block ml-4' onClick={() => navigate('/4')}>Challenge 4</h2>
             <hr />
         </header>
     )
