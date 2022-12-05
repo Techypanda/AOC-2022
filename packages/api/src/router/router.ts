@@ -4,6 +4,7 @@ import { CaloriesController } from "../controllers/Calories";
 import { Cleaning } from "../controllers/Cleaning";
 import { Jajanken } from "../controllers/Jajanken";
 import { Rucksack } from "../controllers/Rucksack";
+import { Stacker } from "../controllers/Stacker";
 
 export function initializeRoutes(r: FastifyInstance) {
     r.get('/', async (_, reply) => {
@@ -62,4 +63,13 @@ export function initializeRoutes(r: FastifyInstance) {
             reply.status(400).send({ error: 'file is missing' });
         }
     });
+    r.post('/5', async (request, reply) => {
+        const body = await request.body as { data: MultipartFile, v2: boolean };
+        if (body.data) {
+            const buffer = await body.data.toBuffer();
+            new Stacker().post({ data: buffer.toString().split('\n'), v2: body.v2 || false }, reply);
+        } else {
+            reply.status(400).send({ error: 'file is missing' });
+        }
+    })
 }
