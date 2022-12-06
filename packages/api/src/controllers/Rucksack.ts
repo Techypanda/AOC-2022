@@ -99,7 +99,6 @@ export class Rucksack {
     }
     parseGroup(input: string[], groups = 3) {
         let sum = 0;
-        logger.info({ len: input.length });
         for (let i = 0; i + 2 < input.length; i+=3) {
             const m: Record<string, number> = {};
             const filteredOne = input[i].split('').filter((v, i, s) => s.indexOf(v) === i);
