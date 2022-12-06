@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for controllers/Calories.ts</title>
+    <title>Code coverage report for controllers/Tuning.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">controllers</a> Calories.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">controllers</a> Tuning.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.94% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/19</span>
+                <span class='fraction'>15/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>2/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">75% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">80% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">76.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/17</span>
+                <span class='fraction'>12/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,67 +94,70 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">32x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">79x</span>
+<span class="cline-any cline-yes">79x</span>
+<span class="cline-any cline-yes">866x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">2173x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FastifyReply } from 'fastify';
-import { logger } from '../utils/logger';
-interface CaloriesRequest {
-    data: string[]
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FastifyReply } from "fastify";
+import { logger } from "../utils/logger";
+&nbsp;
+interface TuningRequest {
+    data: string;
+    v2: boolean;
 }
-export class CaloriesController {
-    async calculateTopNCalories(input: string[], n = <span class="branch-0 cbranch-no" title="branch not covered" >1)</span> {
-        let current = 0;
-        const sums: number[] = [];
-        input.forEach((x, idx) =&gt; {
-            if (x === '' || idx === input.length-1) {
-                sums.push(current);
-                current = 0;
-            } else {
-                current += Number.parseFloat(x);
+&nbsp;
+export class Tuning {
+    detect(input: string, target = 4) {
+        target -= 1;
+        const chars = input.split('');
+        let i = 0;
+        for (i; i &lt; chars.length - target; i++) {
+            const asciiCodes: number[] = [];
+            for (let k = i; k &lt;= i + target; k++) {
+                asciiCodes.push(chars[k].charCodeAt(0));
             }
-        });
-        const sorted = sums.sort((a, b) =&gt; a - b);
-        const max = sorted.slice(n * -1);
-        const sum = max.reduce((prev, curr) =&gt; prev + curr, 0);
-        return { max, sum };
+            if (asciiCodes.sort((x, y) =&gt; x - y).filter((v, i, self) =&gt; self.indexOf(v) === i).length === (target+1)) {
+                break;
+            }
+        }
+        return i + target;
     }
-    async <span class="fstat-no" title="function not covered" >get(</span>request: CaloriesRequest, reply: FastifyReply, n = <span class="branch-0 cbranch-no" title="branch not covered" >1)</span> {
-<span class="cstat-no" title="statement not covered" >        logger.info(`Calculating top ${n} calories`);</span>
-        const { max, sum } = <span class="cstat-no" title="statement not covered" >await this.calculateTopNCalories(request.data, n);</span>
-<span class="cstat-no" title="statement not covered" >        logger.info('finished calculating top n calories', { max, sum });</span>
+    async <span class="fstat-no" title="function not covered" >post(</span>request: TuningRequest, reply: FastifyReply) {
+<span class="cstat-no" title="statement not covered" >        logger.info('Tuning', { data: request.data });</span>
+        const packetMarker = <span class="cstat-no" title="statement not covered" >this.detect(request.data) + 1;</span>
 <span class="cstat-no" title="statement not covered" >        reply</span>
             .status(200)
             .header('Content-Type', 'application/json; charset=utf-8')
-            .send({ max, sum });
+            .send({ packetMarker });
     }
 }</pre></td></tr></table></pre>
 
